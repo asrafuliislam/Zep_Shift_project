@@ -1,0 +1,16 @@
+/* Side cards style */
+.myReviewSwiper .swiper-slide {
+    transition: all 0.4s ease;
+    opacity: 0.6;       
+    transform: translateY(25px); 
+}
+.myReviewSwiper .swiper-slide-active {
+    opacity: 1 !important;
+    transform: translateY(0px) scale(1.05);
+}
+
+.myReviewSwiper .swiper-slide-prev,
+.myReviewSwiper .swiper-slide-next {
+    opacity: 0.35 !important;
+    transform: translateY(20px) scale(0.9);
+}
