@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm, useWatch } from 'react-hook-form';
 import UseAuth from '../../Hooks/UseAuth';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
-import { useLoaderData, useNavigate } from 'react-router';
+import { useLoaderData} from 'react-router';
 import Swal from 'sweetalert2';
 
 const Rider = () => {
@@ -17,7 +17,6 @@ const Rider = () => {
     const { user } = UseAuth();
 
     const axiosSecure = useAxiosSecure();
-    const navigate = useNavigate();
     const serviceCenter = useLoaderData();
 
     const regionsDuplicate = serviceCenter.map(c => c.region);
