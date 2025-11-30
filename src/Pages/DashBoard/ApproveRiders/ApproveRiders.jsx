@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
-import { FaUserCheck } from 'react-icons/fa';
+import { FaEye, FaUserCheck } from 'react-icons/fa';
 import { IoPersonRemoveSharp } from 'react-icons/io5';
 import { FaTrashCan } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
@@ -19,8 +19,8 @@ const ApproveRiders = () => {
 
 
     const updateRiderStatus = (rider, status) => {
-        const updateInfo = {status: status, email: rider.RiderEmail}
-        axiosSecure.patch(`/riders/${rider._id}`, updateInfo )
+        const updateInfo = { status: status, email: rider.RiderEmail }
+        axiosSecure.patch(`/riders/${rider._id}`, updateInfo)
             .then(res => {
                 if (res.data.modifiedCount) {
                     refetch();
@@ -87,12 +87,14 @@ const ApproveRiders = () => {
 
                                     <td className=''>
                                         <button onClick={() => handleApproval(rider)} className="btn mr-2">
-                                            <FaUserCheck />
+                                            <FaEye />
                                         </button>
                                         <button onClick={() => handleRejection(rider)} className="btn mr-2">
                                             <IoPersonRemoveSharp />
                                         </button>
-
+                                        <button className='btn'>
+                                            <FaTrashCan />
+                                        </button>
                                         <button className='btn'>
                                             <FaTrashCan />
                                         </button>
