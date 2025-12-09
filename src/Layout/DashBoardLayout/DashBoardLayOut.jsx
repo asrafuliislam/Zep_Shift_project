@@ -4,11 +4,14 @@ import Logo from '../../Component/Logo/logo';
 import { CiDeliveryTruck } from 'react-icons/ci';
 import { FaMotorcycle, FaRegCreditCard, FaUsers } from 'react-icons/fa';
 import UseRole from '../../Hooks/UseRole';
+import { RiEBikeFill } from "react-icons/ri";
 
 
 const DashBoardLayOut = () => {
 
     const {role} = UseRole();
+    
+        console.log('in the dashbord user management ',role)
 
     return (
         <div className="drawer lg:drawer-open max-w-7xl mx-auto">
@@ -74,7 +77,15 @@ const DashBoardLayOut = () => {
                                     <NavLink to='/dashboard/users-management' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Users Management">
                                         <FaUsers />
                                         <span className="is-drawer-close:hidden">
-                                            Users Management</span>
+                                            Users  Management</span>
+                                    </NavLink>
+                                </li>
+                                {/* Assign Riders */}
+                                <li>
+                                    <NavLink to='/dashboard/assign-riders' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Assign Riders">
+                                        <RiEBikeFill />
+                                        <span className="is-drawer-close:hidden">
+                                            Assign Riders</span>
                                     </NavLink>
                                 </li>
                             </>

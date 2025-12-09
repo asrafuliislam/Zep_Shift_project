@@ -19,6 +19,9 @@ import PaymentCancelled from "../Pages/DashBoard/PaymentCancelled";
 import PaymentHistory from "../Pages/DashBoard/PaymentHistory/PaymentHistory";
 import ApproveRiders from "../Pages/DashBoard/ApproveRiders/ApproveRiders";
 import UsersManagement from "../Pages/DashBoard/UsersManagement/UsersManagement";
+import AdminRoute from "./AdminRoute";
+import Forbidden from "../Component/Forbident/Fobident";
+import AssignRiders from "../Pages/DashBoard/AssignRiders/AssignRiders";
 
 export const router = createBrowserRouter([
     {
@@ -47,8 +50,7 @@ export const router = createBrowserRouter([
                 path: '/sendParcel',
                 element: <PrivateRoute> <SendParcel></SendParcel></PrivateRoute>,
                 loader: () => fetch('/warehouses.json').then(res => res.json()),
-            }
-
+            },
         ]
 
     },
@@ -102,11 +104,18 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'approve-riders',
-                Component: ApproveRiders
+                // Component: ApproveRiders
+                element: <AdminRoute><ApproveRiders></ApproveRiders></AdminRoute>
             },
             {
                 path: 'users-management',
-                Component: UsersManagement
+                // Component: UsersManagement,
+                element: <AdminRoute><UsersManagement></UsersManagement></AdminRoute>
+            },
+            {
+                path: 'assign-riders',
+                // Component: AssignRiders,
+                element: <AdminRoute><AssignRiders></AssignRiders></AdminRoute>
             }
         ]
     }

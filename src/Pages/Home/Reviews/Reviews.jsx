@@ -7,7 +7,6 @@ import './reviewSwiper.css'
 
 const Reviews = ({ ReviewsPromise }) => {
     const Reviews = use(ReviewsPromise);
-    console.log(Reviews);
 
     return (
         <div className='my-10'>

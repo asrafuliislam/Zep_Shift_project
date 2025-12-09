@@ -82,6 +82,7 @@ const MyParcels = () => {
                         <th>Name</th>
                         <th>Cost</th>
                         <th>Payment</th>
+                        <th>TrackingId</th>
                         <th>Delivery Status</th>
                         <th>Action</th>
                     </tr>
@@ -94,18 +95,19 @@ const MyParcels = () => {
                                 <td>{parcel.parcelName}</td>
                                 <td>{parcel.cost}</td>
                                 <td>
-    {
-        parcel.payment_status === 'paid'
-            ? <span className="text-green-500 font-bold">Paid</span>
-            : <button
-                onClick={() => handlePayment(parcel)}
-                className='btn btn-primary btn-sm text-black'>
-                Pay
-            </button>
-    }
-</td>
+                                    {
+                                        parcel.payment_status === 'paid'
+                                            ? <span className="text-green-500 font-bold">Paid</span>
+                                            : <button
+                                                onClick={() => handlePayment(parcel)}
+                                                className='btn btn-primary btn-sm text-black'>
+                                                Pay
+                                            </button>
+                                    }
+                                </td>
 
-                                <td>Padding</td>
+                                <td>{parcel.trackingId}</td>
+                                <td>{parcel.deliveryStatus}</td>
 
                                 <td>
                                     <button
@@ -126,7 +128,7 @@ const MyParcels = () => {
                                 </td>
                             </tr>)
                     }
-                    
+
 
                 </tbody>
             </table>

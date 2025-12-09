@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { FaEye, FaUserCheck } from 'react-icons/fa';
-import { IoPersonRemoveSharp } from 'react-icons/io5';
+import { IoPersonAddSharp, IoPersonRemoveSharp } from 'react-icons/io5';
 import { FaTrashCan } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
 
@@ -54,7 +54,8 @@ const ApproveRiders = () => {
                             <th>Name</th>
                             <th>Email</th>
                             <th>District</th>
-                            <th>Status</th>
+                            <th>Work Status</th>
+                            <th>Application Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -69,6 +70,7 @@ const ApproveRiders = () => {
                                     <td>{rider.Rider_District}</td>
 
 
+                                    <td>{rider.workStatus}</td>
                                     <td>
                                         <span
                                             className={
@@ -85,20 +87,35 @@ const ApproveRiders = () => {
 
 
 
-                                    <td className=''>
-                                        <button onClick={() => handleApproval(rider)} className="btn mr-2">
+
+                                    <td className="">
+                                        {rider.status === 'approved' ? (
+                                            <button
+                                                onClick={() => handleRejection(rider)}
+                                                className="btn mr-2"
+                                            >
+                                                <IoPersonRemoveSharp />
+                                            </button>
+                                        ) : (
+                                            <button
+                                                onClick={() => handleApproval(rider)}
+                                                className="btn mr-2"
+                                            >
+                                                <IoPersonAddSharp />
+                                            </button>
+                                        )}
+
+
+
+                                        <button className="btn mr-2">
+                                            <FaTrashCan />
+                                        </button>
+
+                                        <button className="btn">
                                             <FaEye />
                                         </button>
-                                        <button onClick={() => handleRejection(rider)} className="btn mr-2">
-                                            <IoPersonRemoveSharp />
-                                        </button>
-                                        <button className='btn'>
-                                            <FaTrashCan />
-                                        </button>
-                                        <button className='btn'>
-                                            <FaTrashCan />
-                                        </button>
                                     </td>
+
 
                                 </tr>
 
@@ -109,7 +126,7 @@ const ApproveRiders = () => {
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 
