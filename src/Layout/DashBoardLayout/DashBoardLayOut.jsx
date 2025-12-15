@@ -2,16 +2,16 @@ import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import Logo from '../../Component/Logo/logo';
 import { CiDeliveryTruck } from 'react-icons/ci';
-import { FaMotorcycle, FaRegCreditCard, FaUsers } from 'react-icons/fa';
+import { FaMotorcycle, FaRegCreditCard, FaTasks, FaUsers } from 'react-icons/fa';
 import UseRole from '../../Hooks/UseRole';
 import { RiEBikeFill } from "react-icons/ri";
-
+import { SiGoogletasks } from "react-icons/si";
 
 const DashBoardLayOut = () => {
 
-    const {role} = UseRole();
-    
-        console.log('in the dashbord user management ',role)
+    const { role } = UseRole();
+
+    console.log('in the dashbord user management ', role)
 
     return (
         <div className="drawer lg:drawer-open max-w-7xl mx-auto">
@@ -61,6 +61,40 @@ const DashBoardLayOut = () => {
                                     Payment History</span>
                             </NavLink>
                         </li>
+
+
+
+
+
+
+                        {/* riders only route */}
+                        {
+                            role === 'rider' &&
+                            <>
+
+                                <li>
+                                    <NavLink to='/dashboard/assign-delivery' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Assign Delivery">
+                                        <FaTasks />
+                                        <span className="is-drawer-close:hidden">
+                                            Assign Delivery</span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink to='/dashboard/completed-deliveries' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Completed Deliveries">
+                                        <SiGoogletasks />
+
+                                        <span className="is-drawer-close:hidden">
+                                            Completed Deliveries</span>
+                                    </NavLink>
+                                </li>
+
+                            </>
+                        }
+
+
+
+
+                        {/* admin only routes */}
                         {
                             role === 'admin' &&
                             <>

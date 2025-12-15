@@ -22,6 +22,10 @@ import UsersManagement from "../Pages/DashBoard/UsersManagement/UsersManagement"
 import AdminRoute from "./AdminRoute";
 import Forbidden from "../Component/Forbident/Fobident";
 import AssignRiders from "../Pages/DashBoard/AssignRiders/AssignRiders";
+import RiderRoute from "./RiderRoute";
+import AssignDelivery from "../Pages/DashBoard/AssignDelivery/AssignDelivery";
+import CompletedDeliveries from "../Pages/DashBoard/CompletedDeliveries/CompletedDeliveries";
+import ParcelTrack from "../Pages/ParcelTrack/ParcelTrack";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +49,10 @@ export const router = createBrowserRouter([
             {
                 path: '/aboutUs',
                 Component: AboutUs
+            },
+            {
+                path: '/parcel-track/:trackingId',
+                Component: ParcelTrack
             },
             {
                 path: '/sendParcel',
@@ -102,6 +110,7 @@ export const router = createBrowserRouter([
                 path: 'payment-history',
                 Component: PaymentHistory
             },
+            // admin only route  
             {
                 path: 'approve-riders',
                 // Component: ApproveRiders
@@ -116,6 +125,15 @@ export const router = createBrowserRouter([
                 path: 'assign-riders',
                 // Component: AssignRiders,
                 element: <AdminRoute><AssignRiders></AssignRiders></AdminRoute>
+            },
+            // rider route
+            {
+                path: 'assign-delivery',
+                element: <RiderRoute><AssignDelivery></AssignDelivery></RiderRoute>
+            },
+            {
+                path: 'completed-deliveries',
+                element: <RiderRoute><CompletedDeliveries></CompletedDeliveries></RiderRoute>
             }
         ]
     }

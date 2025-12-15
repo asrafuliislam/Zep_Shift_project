@@ -95,7 +95,9 @@ const UsersManagement = () => {
                                         </div>
                                     </td>
 
+                                    
                                     <td>{user.role}</td>
+                                    
                                     <td>
                                         {user.role === 'admin' ?
                                             <button
